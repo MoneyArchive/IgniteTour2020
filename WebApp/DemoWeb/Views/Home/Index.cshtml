@@ -1,0 +1,92 @@
+﻿@using System.Runtime.InteropServices
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Microsoft Ignite: The Tour</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Favicons -->
+    <meta name="theme-color" content="#563d7c">
+
+    <link href="~/css/cover.css" rel="stylesheet" />
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @@media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .lead {
+            font-size: 1.9rem;
+        }
+    </style>
+    <!-- Custom styles for this template -->
+</head>
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto align-content-center">
+            <div class="inner">
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <h2 class="cover-heading">Microsoft Ignite: The Tour</h2>
+            <p class="lead">
+                OSDescription: @RuntimeInformation.OSDescription
+                <br />
+                OSArchitecture: @RuntimeInformation.OSArchitecture
+                <br />
+                ProcessArchitecture: @RuntimeInformation.ProcessArchitecture
+                <br />
+                FrameworkDescription: @RuntimeInformation.FrameworkDescription
+                <br />
+                MachineName: @Environment.MachineName
+                <br />
+                Slot: @Environment.GetEnvironmentVariable("WEBSITE_HOSTNAME")
+            </p>
+            <br />
+            <h2 class="cover-heading">Current Time</h2>
+            <p class="lead">
+                DateTime: @DateTime.Now
+                <br />
+                DateTimeOffset: @DateTimeOffset.Now
+            </p>
+            <br />
+            <h2 class="cover-heading">AppSetting</h2>
+            <p class="lead">
+                Example: @Configuration["AppSettings:Example"]
+            </p>
+        </main>
+        <canvas id="canvas"></canvas>
+
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
